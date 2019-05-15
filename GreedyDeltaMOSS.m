@@ -32,12 +32,12 @@ while SmallSize ~=0
     for id                 = 1:NumObj
         if ~Chosen(id)
             Chosen(id)     = true;
-            Mark           = Range(Chosen);                       % 用于选择合并那个目标 i
+            Mark           = Range(Chosen);                    % 用于选择合并那个目标 i
             NotMark        = Range(~Chosen);
             TwoR           = and(WeaklyDominate(Objective(:,Mark)),EpsilonDom(Objective,delta,NotMark));
             TempR          = and(R,SingleDom{id});
             TempR(TwoR==1) = 0;
-            CurrentSize    = sum(TempR(:)); % 当前存在支配关系个数
+            CurrentSize    = sum(TempR(:));                      % 当前存在支配关系个数
             if CurrentSize < SmallSize
                 SmallSize  = CurrentSize;   % 比较
                 Selected   = id;
