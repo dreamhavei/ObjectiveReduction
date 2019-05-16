@@ -56,6 +56,7 @@ function R1             = WeaklyDominate(Objective)
 % Description:
 %   计算给定目标所有个体之间的弱支配关系 R 
 %   R1(i,j) = 1 表示第i个体支配第j个体
+% TODO 优化速度 变成矩阵用any all
 for ia                  = 1:size(Objective,1)
     for ib              = 1:size(Objective,1)
         R1(ia, ib)      = WeakDominate(Objective(ia, :), Objective(ib, :));
@@ -66,6 +67,7 @@ end
 function Relation       = EpsilonDom(Objective,delta,Pos)
 % Description:
 %   计算给定目标所有个体之间的epsilon支配关系 R  
+% TODO 优化速度 变成矩阵用any all
 for ie                  = 1:size(Objective,1)
     for ig              = 1:size(Objective,1)
         Relation(ie,ig) = EpsilonDominate(Objective(ie,:),Objective(ig,:),delta,Pos);
