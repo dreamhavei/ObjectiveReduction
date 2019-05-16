@@ -1,15 +1,15 @@
-function [SelectedObj] = DeltaExact(Objective,delta)
+function [MinDeltaUnion] = DeltaExact(Objective,delta)
 %=========================================================================%
 %                           DeltaExact 算法                               %
 %=========================================================================%
 % Description:
-%   计算eta({i},{j},F)
+%   精确的delta算法
 %-------------------------------------------------------------------------
 % Input:  Name          description     type
 %         Objective     目标值          array
 %         delta         delta值         double
 % Output: 
-%         SelectedObj  选择的目标       vector(double)
+%         MinDeltaUnion 最下目标集       vector(double)
 %-------------------------------------------------------------------------
 %
 % version 1.0 -- May/2019
@@ -95,7 +95,7 @@ for a                                                   = 1:NumInd-1
                      elseif max(Statue)==2
                          ReplIndex                      = find(Statue==2);
                          NewSet(ReplIndex(1),:)         = TempSet(:);
-                         for ij                         = 2:length(ReplIndex)
+                         for ij                         = length(ReplIndex):-1:2
                              NewSet(ReplIndex(ij),:)    = [];
                              ih                         = ih - 1;
                          end
@@ -105,7 +105,6 @@ for a                                                   = 1:NumInd-1
                      end
                  end
              end
-%              MinDeltaUnion                            = NewSet;
          end
      end
      end
@@ -116,7 +115,6 @@ for a                                                   = 1:NumInd-1
     clear MinDelta
     end
 end
-
 
 
 %========================================================================
