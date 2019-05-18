@@ -9,7 +9,7 @@ function [MinDeltaUnion] = DeltaExact(Objective,delta)
 %         Objective     目标值          array
 %         delta         delta值         double
 % Output: 
-%         MinDeltaUnion 最下目标集       vector(double)
+%         MinDeltaUnion 最小目标集       cell(double)
 %-------------------------------------------------------------------------
 %
 % version 1.0 -- May/2019
